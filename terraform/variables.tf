@@ -25,9 +25,9 @@ variable "common_tags" {
   description = "Mapa de etiquetas aplicadas a todos los recursos"
   type        = map(string)
   default = {
-    Project     = "url-shortener"
-    Module      = "shorten"
-    ManagedBy   = "terraform"
+    Project   = "url-shortener"
+    Module    = "shorten"
+    ManagedBy = "terraform"
   }
 }
 

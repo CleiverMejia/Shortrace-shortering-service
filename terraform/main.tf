@@ -13,9 +13,9 @@ terraform {
 }
 
 resource "aws_dynamodb_table" "short_urls" {
-  name = "short_urls"
+  name         = "short_urls"
   billing_mode = "PAY_PER_REQUEST"
-  hash_key = "shortCode"
+  hash_key     = "shortCode"
 
   attribute {
     name = "shortCode"
