@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+
+jobs:
+  node-build:
+    name: Build aplicación Node.js
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencias
+        run: npm install
+        working-directory: app
+
+      - name: Build aplicación
+        run: npm run build
+        working-directory: app
+
+  terraform-validate:
+    name: Validar Terraform
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: "1.5.0"
+
+      - name: Formatear y validar sintaxis de Terraform
+        run: |
+          terraform fmt -check
+          terraform init -backend=false
+          terraform validate
+        working-directory: terraform

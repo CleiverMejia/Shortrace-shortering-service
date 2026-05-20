@@ -15,9 +15,6 @@ export class DynamoUrlRepository implements UrlRepository {
   );
 
   async save(url: ShortUrl) {
-    console.log("Esto se va a guardar", url);
-    console.log("Table log", process.env.DYNAMODB_TABLE);
-
     await this.client.send(
       new PutCommand({
         TableName: process.env.DYNAMODB_TABLE,
@@ -28,6 +25,5 @@ export class DynamoUrlRepository implements UrlRepository {
         },
       }),
     );
-    console.log("despues del save");
   }
 }
