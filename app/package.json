@@ -1,0 +1,22 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "esbuild src/*.ts --bundle --outdir=dist/ --platform=node",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.1050.0",
+    "@aws-sdk/lib-dynamodb": "^3.1050.0",
+    "esbuild": "^0.28.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.1"
+  }
+}

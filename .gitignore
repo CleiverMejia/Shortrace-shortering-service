@@ -1,0 +1,16 @@
+# compile output
+node_modules/
+dist/
+
+# terraform
+.terraform/
+.build/
+*.tfstate
+*.tfstate.*
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraform.lock.hcl
+dev.tfvars
